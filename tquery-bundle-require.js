@@ -41197,10 +41197,10 @@ H=null,f;else ea&&(importScripts(d),b.completeLoad(c))};v&&M(document.getElement
 c=(d.length===1?["require"]:["require","exports","module"]).concat(c));if(K&&(g=H||ha()))b||(b=g.getAttribute("data-requiremodule")),f=y[g.getAttribute("data-requirecontext")];(f?f.defQueue:O).push([b,c,d])};define.amd={jQuery:!0};j.exec=function(b){return eval(b)};j(r)}})(this);
 requirejs.config({
 	"paths": {
-		"build": "../../../build",
-		"plugins": "../../../plugins",
-		"threex": "../../../vendor/threex",
-		"three.js": "../../../vendor/three.js"
+		"build": "build",
+		"plugins": "plugins",
+		"threex": "vendor/threex",
+		"three.js": "vendor/three.js"
 	},
 	"map": {
 		"*": {
