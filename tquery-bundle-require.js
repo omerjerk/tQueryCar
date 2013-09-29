@@ -42611,10 +42611,10 @@ c=(d.length===1?["require"]:["require","exports","module"]).concat(c));if(K&&(g=
 requirejs.config({
     waitSeconds:0,
 	"paths": {
-		"build": "/car/build",
-		"plugins": "/car/plugins",
-		"threex": "/car/vendor/threex",
-		"three.js": "/car/vendor/three.js"
+		"build": "/tQueryCar/build",
+		"plugins": "/tQueryCar/plugins",
+		"threex": "/tQueryCar/vendor/threex",
+		"three.js": "/tQueryCar/vendor/three.js"
 	},
 	"map": {
 		"*": {
