@@ -62,6 +62,7 @@ tQuery.Car.registerInstance('hookKeyboardLoopCb', function(delta, now){
 	this.controls().moveLeft	= keyboard.pressed(opts.keyStateLeft);
 	this.controls().moveRight	= keyboard.pressed(opts.keyStateRight);
 	this.controls().moveForward	= keyboard.pressed(opts.keyStateUp);
+	//this.controls().moveForward = true;
 	this.controls().moveBackward	= keyboard.pressed(opts.keyStateDown);
 	
 	this.flareVisible(['backA', 'backB']	, this.controls().moveBackward );

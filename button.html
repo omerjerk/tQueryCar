@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Controller</title>
+    <script type="text/javascript">
+    var x,y, l ,k , ax, ay;
+        window.addEventListener("deviceorientation",function(event) {  
+           // ax = event.accelerationIncludingGravity.x;
+            ay = event.beta;
+           // az = event.accelerationIncludingGravity.z;
+           var xhr = new XMLHttpRequest();
+    	if(ay < 0){
+    	xhr.open('GET', '/car?lol=left', true);
+    	}
+    	else {
+    	
+    	  xhr.open('GET', '/car?lol=right', true);
+    	}
+    	xhr.send();
+            
+            // acceleration to angle
+            //x = Math.acos(ax/Math.sqrt(Math.pow(ax,2)+Math.pow(ay,2)+Math.pow(az,2)));
+            //y = Math.acos(az/Math.sqrt(Math.pow(ax,2)+Math.pow(ay,2)+Math.pow(az,2)));
+            
+            //l =x;
+            //k =y;
+            
+            //cx = (x * 180 / Math.PI);
+            //cy = (y * 180 / Math.PI);
+            //x = offX - cx;
+            //y = cy - offY;
+            //sendXY(x, y);
+        },false) ;
+        
+        lol = function(){
+          alert(" X " + ax + " Y " + ay);
+        }
+    </script>
+  </head>
+  <body>
+    <script src='/_ah/channel/jsapi'></script>
+    <script type="text/javascript">
+    onOpened = function() {
+      connected = true;
+      alert("connected");
+      //sendMessage('guestbook');
+  	  //updateBoard();
+	};
+	
+	
+	
+	sendMessage = function(path, opt_param) {
+    	//path += '?g=' + state.game_key;
+    	if (opt_param) {
+     	 path += '&' + opt_param;
+    	}
+    	
+    };
+    var i = 0;
+    onMessage = function(msg){
+      
+    };
+    
+    onError = function(){
+      alert("Error");
+    };
+    
+    onClose = function(){
+      //alert("Connection Closed");
+    };
+	
+    channel = new goog.appengine.Channel('{{ token }}');
+    socket = channel.open();
+    socket.onopen = onOpened;
+    socket.onmessage = onMessage;
+    socket.onerror = onError;
+    socket.onclose = onClose;
+        
+    </script>
+   
+  </body>
+</html>

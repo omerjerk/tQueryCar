@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Controller</title>
+    <script src="AppWarpClientSDK.js" type="text/javascript"></script>
+    <script src="listenerMobile.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    var room_id = "1932964503";
+      var api_key = "bd5ca74e649f59728b9aa40e2682cbb36d0a4f5c0ceda9cbd82b02c8a98dd560";
+	var secret_key = "d579ce4cbfa8d47db3d852316008d3bc9360871539ec341a8f30ef7b80acc472";
+    WarpClient.initialize(api_key, secret_key);
+	
+	WarpClient.addConnectionRequestListener(new MyConnectionRequestListener());
+	WarpClient.addRoomRequestListener(new MyRoomRequestListener());
+	WarpClient.addNotificationListener(new MyNotifyListener());
+	
+	WarpClient.connect('mobile');  //Connecting to Server
+	
+	function startgame(){
+		window.addEventListener("deviceorientation",function(event) {  
+           // ax = event.accelerationIncludingGravity.x;
+            ay = event.beta;
+           // az = event.accelerationIncludingGravity.z;
+           //var xhr = new XMLHttpRequest();
+    	if(ay < 0){
+    	  WarpClient.sendChat('left');
+    	}
+    	else {
+    	
+    	 WarpClient.sendChat('right');
+    	}
+    	//xhr.send();
+        },false) ;
+	}
+    
+            
+          
+        function testChat(){
+		WarpClient.sendChat('right');
+	}
+        lol = function(){
+          alert(" X " + ax + " Y " + ay);
+        }
+    </script>
+  </head>
+  <body>
+    
+        
+    </script>
+   <button onclick="testChat()">SEND</button>
+  </body>
+</html>
